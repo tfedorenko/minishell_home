@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   prompt.c                                           :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tfedoren <tfedoren@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: tfedoren <tfedoren@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/02 01:06:32 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/08/02 11:34:43 by tfedoren         ###   ########.fr       */
+/*   Created: 2021/12/23 12:37:33 by tfedoren          #+#    #+#             */
+/*   Updated: 2021/12/23 12:37:33 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "shell.h"
+#include "libft.h"
 
-void print_prompt1(void)
+t_list	*ft_lstnew(void *content)
 {
-    fprintf(stderr, "$ ");
-}
+	t_list	*new;
 
-void print_prompt2(void)
-{
-    fprintf(stderr, "> ");
+	new = malloc(sizeof(t_list));
+	if (!new)
+		return (NULL);
+	new->content = content;
+	new->next = NULL;
+	return (new);
 }

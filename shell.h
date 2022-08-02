@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   prompt.c                                           :+:      :+:    :+:   */
+/*   shell.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tfedoren <tfedoren@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/02 01:06:32 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/08/02 11:34:43 by tfedoren         ###   ########.fr       */
+/*   Created: 2022/08/02 11:21:12 by tfedoren          #+#    #+#             */
+/*   Updated: 2022/08/02 11:23:53 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "shell.h"
+#ifndef SHELL_H
+#define SHELL_H
 
-void print_prompt1(void)
-{
-    fprintf(stderr, "$ ");
-}
+# include "Libft/libft.h"
 
-void print_prompt2(void)
-{
-    fprintf(stderr, "> ");
-}
+void print_prompt1(void);
+void print_prompt2(void);
+char *read_cmd(char *buf);
+
+#endif

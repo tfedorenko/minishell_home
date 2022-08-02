@@ -1,24 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   prompt.c                                           :+:      :+:    :+:   */
+/*   ft_putunsignednbr.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tfedoren <tfedoren@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/02 01:06:32 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/08/02 11:34:43 by tfedoren         ###   ########.fr       */
+/*   Created: 2022/02/18 20:21:28 by tfedoren          #+#    #+#             */
+/*   Updated: 2022/05/20 15:57:02 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "shell.h"
+#include "libft.h"
 
-void print_prompt1(void)
+static int	ft_unbrlen(unsigned int n)
 {
-    fprintf(stderr, "$ ");
+	int	i;
+
+	i = 0;
+	if (n == 0)
+		i++;
+	while (n > 0)
+	{
+		i++;
+		n /= 10;
+	}
+	return (i);
 }
 
-void print_prompt2(void)
+int	ft_putunsignednbr(unsigned int n)
 {
-    fprintf(stderr, "> ");
+	int	i;
+
+	i = ft_unbrlen(n);
+	if (n >= 10)
+	{
+		ft_putunsignednbr(n / 10);
+		ft_putunsignednbr(n % 10);
+	}
+	else
+		ft_putchar(n + '0');
+	return (i);
 }

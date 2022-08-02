@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   prompt.c                                           :+:      :+:    :+:   */
+/*   ft_putvoidptr.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tfedoren <tfedoren@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/02 01:06:32 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/08/02 11:34:43 by tfedoren         ###   ########.fr       */
+/*   Created: 2022/02/18 16:04:41 by tfedoren          #+#    #+#             */
+/*   Updated: 2022/05/20 15:56:58 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "shell.h"
+#include "libft.h"
 
-void print_prompt1(void)
+int	ft_putvoidptr(void *ptr)
 {
-    fprintf(stderr, "$ ");
-}
+	int	i;
 
-void print_prompt2(void)
-{
-    fprintf(stderr, "> ");
+	i = 0;
+	if (!ptr)
+		i += ft_putstr("0x0");
+	else
+	{
+		i += ft_putstr("0x");
+		i += ft_puthexadecimalnbr(((unsigned long long int)ptr), 0);
+	}
+	return (i);
 }

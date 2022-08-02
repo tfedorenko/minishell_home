@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   prompt.c                                           :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tfedoren <tfedoren@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: tfedoren <tfedoren@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/02 01:06:32 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/08/02 11:34:43 by tfedoren         ###   ########.fr       */
+/*   Created: 2021/12/02 17:33:27 by tfedoren          #+#    #+#             */
+/*   Updated: 2021/12/02 17:33:27 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "shell.h"
+#include "libft.h"
 
-void print_prompt1(void)
+size_t	ft_strlen(const char *s)
 {
-    fprintf(stderr, "$ ");
-}
+	size_t	i;
 
-void print_prompt2(void)
-{
-    fprintf(stderr, "> ");
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
 }

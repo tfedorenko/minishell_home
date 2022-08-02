@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   prompt.c                                           :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tfedoren <tfedoren@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: tfedoren <tfedoren@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/02 01:06:32 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/08/02 11:34:43 by tfedoren         ###   ########.fr       */
+/*   Created: 2021/12/02 18:33:45 by tfedoren          #+#    #+#             */
+/*   Updated: 2021/12/02 18:33:45 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "shell.h"
+#include "libft.h"
 
-void print_prompt1(void)
+void	*ft_memset(void *dst, int c, size_t len)
 {
-    fprintf(stderr, "$ ");
-}
+	size_t	i;
+	char	*d;
 
-void print_prompt2(void)
-{
-    fprintf(stderr, "> ");
+	d = dst;
+	i = 0;
+	while (i < len)
+	{
+		d[i] = c;
+		i++;
+	}
+	return (dst);
 }

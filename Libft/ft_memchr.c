@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   prompt.c                                           :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tfedoren <tfedoren@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: tfedoren <tfedoren@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/02 01:06:32 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/08/02 11:34:43 by tfedoren         ###   ########.fr       */
+/*   Created: 2021/12/12 15:59:24 by tfedoren          #+#    #+#             */
+/*   Updated: 2021/12/12 15:59:24 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "shell.h"
+#include "libft.h"
 
-void print_prompt1(void)
+void	*ft_memchr(const void *arr, int c, size_t n)
 {
-    fprintf(stderr, "$ ");
-}
+	unsigned char	*src;
+	unsigned int	i;
 
-void print_prompt2(void)
-{
-    fprintf(stderr, "> ");
+	i = 0;
+	src = (unsigned char *)arr;
+	while (i < n)
+	{
+		if (src[i] == (unsigned char)c)
+			return (&src[i]);
+		i++;
+	}
+	return (0);
 }

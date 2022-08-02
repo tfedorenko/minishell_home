@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   prompt.c                                           :+:      :+:    :+:   */
+/*   scanner.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tfedoren <tfedoren@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/02 01:06:32 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/08/02 11:34:43 by tfedoren         ###   ########.fr       */
+/*   Created: 2022/08/02 15:04:03 by tfedoren          #+#    #+#             */
+/*   Updated: 2022/08/02 21:13:01 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "shell.h"
+#ifndef SCANNER_H
+# define SCANNER_H
 
-void print_prompt1(void)
-{
-    fprintf(stderr, "$ ");
-}
 
-void print_prompt2(void)
+typedef struct s_token
 {
-    fprintf(stderr, "> ");
-}
+	struct source_s	*src;
+	int				text_len;
+	char			text;
+} t_token ;
+
+
+#endif

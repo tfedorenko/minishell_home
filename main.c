@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tfedoren <tfedoren@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: tfedoren <tfedoren@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 00:43:31 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/08/02 00:43:31 by tfedoren         ###   ########.fr       */
+/*   Updated: 2022/08/02 11:42:53 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,18 @@ char *read_cmd(char *buf)
     int buflen;
     char *tmp;
 
+    print_prompt1();
     buf = get_next_line(0);
-    buflen = strlen(buf);
+    buflen = ft_strlen(buf);
+    while(buflen > 1 && buf[buflen - 1] == '\\')
+    {
+        buf[buflen - 1] = '\n';
+        buf[buflen] = '\0';
+        print_prompt2();
+        tmp = buf;
+        buf = get_next_line(0);
+        buf = ft_strjoin(tmp, &buf);
+    }
 }
 
 int main(int argc, char **argv)
@@ -31,7 +41,6 @@ int main(int argc, char **argv)
 
     while(1)
     {
-        print_prompt1();
         cmd = read_cmd(cmd);
         if(!cmd)
             exit(EXIT_SUCCESS);
@@ -46,7 +55,7 @@ int main(int argc, char **argv)
             break;
         }
         write(1, cmd, ft_strlen(cmd));
-        write(1, "\n". 1);
+        write(1, "\n", 1);
         free(cmd);
     }
     exit(EXIT_SUCCESS);

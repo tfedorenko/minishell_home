@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   prompt.c                                           :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tfedoren <tfedoren@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: stena-he <stena-he@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/02 01:06:32 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/08/02 11:34:43 by tfedoren         ###   ########.fr       */
+/*   Created: 2021/12/24 23:53:14 by tfedoren          #+#    #+#             */
+/*   Updated: 2022/06/20 21:39:07 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "shell.h"
+#include "libft.h"
 
-void print_prompt1(void)
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-    fprintf(stderr, "$ ");
-}
+	t_list	*t;
 
-void print_prompt2(void)
-{
-    fprintf(stderr, "> ");
+	while (*lst)
+	{
+		t = (*lst)->next;
+		del((*lst)->content);
+		free(*lst);
+		*lst = t;
+	}
 }

@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   prompt.c                                           :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tfedoren <tfedoren@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: tfedoren <tfedoren@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/02 01:06:32 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/08/02 11:34:43 by tfedoren         ###   ########.fr       */
+/*   Created: 2021/12/24 23:49:15 by tfedoren          #+#    #+#             */
+/*   Updated: 2021/12/24 23:49:15 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "shell.h"
+#include "libft.h"
 
-void print_prompt1(void)
+int	ft_lstsize(t_list *lst)
 {
-    fprintf(stderr, "$ ");
-}
+	int	i;
 
-void print_prompt2(void)
-{
-    fprintf(stderr, "> ");
+	i = 0;
+	while (lst)
+	{
+		i++;
+		if (lst->next)
+			lst = lst->next;
+		else
+			break ;
+	}
+	return (i);
 }

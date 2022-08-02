@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   prompt.c                                           :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tfedoren <tfedoren@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: tfedoren <tfedoren@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/02 01:06:32 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/08/02 11:34:43 by tfedoren         ###   ########.fr       */
+/*   Created: 2021/12/12 21:02:33 by tfedoren          #+#    #+#             */
+/*   Updated: 2021/12/12 21:02:33 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "shell.h"
+#include "libft.h"
 
-void print_prompt1(void)
+void	*ft_calloc(size_t num, size_t size)
 {
-    fprintf(stderr, "$ ");
-}
+	char	*m;
 
-void print_prompt2(void)
-{
-    fprintf(stderr, "> ");
+	m = malloc(size * num);
+	if (!m)
+		return (NULL);
+	ft_memset(m, 0, size * num);
+	return (m);
 }

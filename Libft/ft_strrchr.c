@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   prompt.c                                           :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tfedoren <tfedoren@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: tfedoren <tfedoren@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/02 01:06:32 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/08/02 11:34:43 by tfedoren         ###   ########.fr       */
+/*   Created: 2021/12/12 14:21:11 by tfedoren          #+#    #+#             */
+/*   Updated: 2021/12/12 14:21:11 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "shell.h"
+#include "libft.h"
 
-void print_prompt1(void)
+char	*ft_strrchr(const char *s, int c)
 {
-    fprintf(stderr, "$ ");
-}
+	int		i;
+	char	*str;
 
-void print_prompt2(void)
-{
-    fprintf(stderr, "> ");
+	str = (char *)s;
+	i = ft_strlen(s);
+	while (i >= 0)
+	{
+		if (str[i] == (char)c)
+			return (&str[i]);
+		i--;
+	}
+	return (0);
 }
