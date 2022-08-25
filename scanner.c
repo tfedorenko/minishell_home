@@ -6,7 +6,7 @@
 /*   By: tfedoren <tfedoren@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 14:56:37 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/08/02 21:59:45 by tfedoren         ###   ########.fr       */
+/*   Updated: 2022/08/02 22:08:51 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,3 +89,16 @@ void	free_token(t_token *token)
 	free(token);
 }
 
+t_token *tokenize(t_source *src, t_source *g_token)
+{
+	int endloop;
+	t_token *eof_token;
+
+	eof_token = eof_token_ini();
+	
+	endloop = 0;
+	if(!src || !src->buffer || !src->bufsize)
+	{
+		return(eof_token_ini());
+	}
+}
